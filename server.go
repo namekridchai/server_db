@@ -32,7 +32,6 @@ func Home(c echo.Context) error {
 func CreateUser(c echo.Context) error {
 
 	var user User
-	db, _ := sql.Open("postgres", connStr)
 	err := c.Bind(&user)
 
 	if err != nil {
@@ -69,7 +68,6 @@ func CreateUser(c echo.Context) error {
 
 func GetUser(c echo.Context) error {
 	var users []User
-	db, _ := sql.Open("postgres", connStr)
 	rows, err := db.Query("SELECT * FROM public.user ")
 
 	if err != nil {
