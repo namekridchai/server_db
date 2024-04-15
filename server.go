@@ -20,7 +20,7 @@ var db *sql.DB
 type User struct {
 	Name string `json:"name"`
 	Age  int    `json:"age"`
-	Id   int
+	Id   int    `json:"Id"`
 }
 
 // Handler functions.
@@ -92,7 +92,7 @@ func GetUser(c echo.Context) error {
 		return fmt.Errorf("albumsByArtist : %v", err)
 	}
 
-	return c.JSON(http.StatusAccepted, users)
+	return c.JSON(http.StatusOK, users)
 
 }
 
